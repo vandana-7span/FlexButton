@@ -8,12 +8,10 @@ Requirements
 iOS 13.0+
 Installation
 
-FlexiButton is available through CocoaPods. To install it, simply add the following line to your Podfile:
 
-pod 'FlexiButton'
-Usage
 
-The FlexiButton allows for extensive customization including:
+
+The FlexButton allows for extensive customization including:
 
 Gradient colors
 Icon support
