@@ -12,7 +12,7 @@ public enum ImageAlignment {
 }
 
 @available(macOS 10.15, *)
-struct FlexiButton: View {
+struct FlexButton: View {
     // Properties
     public var gradientColors: [Color]?
     public var icon: Image?
