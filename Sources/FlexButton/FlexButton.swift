@@ -2,12 +2,16 @@
 // https://docs.swift.org/swift-book
 
 import SwiftUI
+
+#if canImport(UIKit)
 import UIKit
+#endif
 
 public enum ImageAlignment {
     case left, right, top, bottom
 }
 
+@available(macOS 10.15, *)
 struct FlexiButton: View {
     // Properties
     public var gradientColors: [Color]?
@@ -133,6 +137,7 @@ struct FlexiButton: View {
     }
 }
 
+@available(macOS 10.15, *)
 struct CircularProgressView: View {
     @State private var rotation = 0.0
     var color: Color
