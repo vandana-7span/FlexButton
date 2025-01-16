@@ -25,29 +25,30 @@ Here is a simple example:
 ```swift
 import FlexButton
 
-FlexButton(
-                gradientColors: [Color.green, Color.yellow],
-                icon: Image(systemName: "star.fill"),
-                title: "Press Me",
-                borderColor: .blue,
-                borderWidth:2,
-                cornerRadius: 35,
-                isLoadingState: $isLoadingPress,
-                loadingColor : .red,
-                buttonWidth: 200,
-                buttonHeight: 50,
-                wrapButton: true,
-                action: {_ in 
-                    withAnimation(.easeInOut(duration: 0.5)) {
-                        isLoadingPress = true  // Start loading
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                        withAnimation(.easeInOut(duration: 0.5)) {
-                            isLoadingPress = false  // Stop loading
-                        }
-                    }
-                }
-            )
+ FlexButton(
+            gradientColors: [.yellow,.green],
+                       icon: Image(systemName: "star.fill"),
+                       title: "Custom Button",
+                       shadowColor:.black,
+                       isLoadingState: $isLoading,
+                       loadingColor:.white,
+                       imageAlignment: ImageAlignment.top,
+                       imageTitleSpacing: 10,
+                       font: Font.system(size: 20, weight: Font.Weight.medium, design: Font.Design.monospaced),
+                       wrapButton: false,
+                       action: {_ in
+                           
+                               withAnimation(.easeInOut(duration: 0.5)) {
+                                   isLoading = true  // Start loading
+                               }
+                               DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                                   withAnimation(.easeInOut(duration: 0.5)) {
+                                       isLoading = false  // Stop loading
+                                   }
+                               }
+                       }
+                   )
+                   .padding()
 
 
 
