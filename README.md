@@ -21,7 +21,7 @@ Customizable font and title properties
 Here is a simple example:
 
 
-import FlexiButton
+import FlexButton
 
 FlexButton(
                 gradientColors: [Color.green, Color.yellow],
