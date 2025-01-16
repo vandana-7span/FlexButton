@@ -1,19 +1,14 @@
 # FlexButton
 FlexButton is a flexible and customizable button component for iOS applications, built using Swift. It provides a variety of styling options, animations, and interaction patterns, making it easy to integrate into different types of user interfaces.
 
-To run the example project, clone the repo, and run pod install from the Example directory first.
+To run the example project, Add Package https://github.com/vandana-7span/FlexButton/tree/main
 
 Requirements
 
 iOS 13.0+
 Installation
 
-FlexiButton is available through CocoaPods. To install it, simply add the following line to your Podfile:
-
-pod 'FlexiButton'
-Usage
-
-The FlexiButton allows for extensive customization including:
+The FlexButton allows for extensive customization including:
 
 Gradient colors
 Icon support
@@ -25,7 +20,7 @@ Here is a simple example:
 
 import FlexiButton
 
-FlexiButton(
+FlexButton(
                 gradientColors: [Color.green, Color.yellow],
                 icon: Image(systemName: "star.fill"),
                 title: "Press Me",
