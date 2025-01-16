@@ -9,6 +9,7 @@ iOS 13.0+
 Installation
 
 
+![Demo GIF](https://github.com/vandana-7span/FlexButton/blob/main/FlexButtom.gif)
 
 
 The FlexButton allows for extensive customization including:
@@ -20,7 +21,8 @@ Loading state management
 Customizable font and title properties
 Here is a simple example:
 
-
+### Code
+```swift
 import FlexButton
 
 FlexButton(
@@ -51,5 +53,5 @@ FlexButton(
 
 Author
 
-Vandana, vandana@7span.com
+Vandana Modi, vandana@7span.com
 
