@@ -8,6 +8,9 @@ Requirements
 iOS 13.0+
 Installation
 
+
+
+
 The FlexButton allows for extensive customization including:
 
 Gradient colors
