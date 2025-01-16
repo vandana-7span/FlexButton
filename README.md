@@ -9,7 +9,7 @@ iOS 13.0+
 Installation
 
 
-![Demo GIF](https://github.com/vandana-7span/FlexButton/blob/main/FlexButtom.gif)
+![Demo GIF](https://github.com/vandana-7span/FlexButton/blob/main/FlexButton.gif)
 
 
 The FlexButton allows for extensive customization including:
