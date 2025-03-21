@@ -13,31 +13,78 @@ public struct FlexButton: View {
     // Customization Properties
     public var gradientColors: [Color]?
     public var icon: Image?
-    public var title: String
+    public var title: String?
     public var borderColor: Color?
-    public var borderWidth: CGFloat = 0
-    public var cornerRadius: CGFloat = 0
+    public var borderWidth: CGFloat
+    public var cornerRadius: CGFloat
     public var shadowColor: Color?
-    public var shadowRadius: CGFloat = 5
-    public var shadowOffset: CGSize = CGSize(width: 0, height: 0)
-    public var shadowOpacity: Double = 0.5
-    public var font: Font = .system(size: 16, weight: .bold, design: .rounded)
-    public var titleColor: Color = .white
-    public var backgroundColor: Color = .red
-    public var titlePosition: CGPoint = CGPoint(x: 0, y: 0)
-    public var iconPosition: CGPoint = CGPoint(x: 0, y: 0)
-    public var iconColor: Color = .white // Default icon color
+    public var shadowRadius: CGFloat
+    public var shadowOffset: CGSize
+    public var shadowOpacity: Double
+    public var font: Font
+    public var titleColor: Color
+    public var backgroundColor: Color
+    public var titlePosition: CGPoint
+    public var iconPosition: CGPoint
+    public var iconColor: Color
     
     // Loading State
     @Binding public var isLoadingState: Bool
-    public var loadingColor: Color = .white
+    public var loadingColor: Color
     
     // Button Size
-    public var buttonWidth: CGFloat? = nil
-    public var buttonHeight: CGFloat? = nil
+    public var buttonWidth: CGFloat?
+    public var buttonHeight: CGFloat?
     
     // Action Handler
     public var action: (Bool) -> Void
+    
+    // Public initializer
+    public init(
+        gradientColors: [Color]? = nil,
+        icon: Image? = nil,
+        title: String? = nil,
+        borderColor: Color? = nil,
+        borderWidth: CGFloat = 0,
+        cornerRadius: CGFloat = 0,
+        shadowColor: Color? = nil,
+        shadowRadius: CGFloat = 5,
+        shadowOffset: CGSize = CGSize(width: 0, height: 0),
+        shadowOpacity: Double = 0.5,
+        font: Font = .system(size: 16, weight: .bold, design: .rounded),
+        titleColor: Color = .white,
+        backgroundColor: Color = .red,
+        titlePosition: CGPoint = CGPoint(x: 170, y: 25),
+        iconPosition: CGPoint = CGPoint(x: -170, y: 25),
+        iconColor: Color = .white,
+        isLoadingState: Binding<Bool>,
+        loadingColor: Color = .white,
+        buttonWidth: CGFloat? = nil,
+        buttonHeight: CGFloat? = nil,
+        action: @escaping (Bool) -> Void
+    ) {
+        self.gradientColors = gradientColors
+        self.icon = icon
+        self.title = title
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
+        self.cornerRadius = cornerRadius
+        self.shadowColor = shadowColor
+        self.shadowRadius = shadowRadius
+        self.shadowOffset = shadowOffset
+        self.shadowOpacity = shadowOpacity
+        self.font = font
+        self.titleColor = titleColor
+        self.backgroundColor = backgroundColor
+        self.titlePosition = titlePosition
+        self.iconPosition = iconPosition
+        self.iconColor = iconColor
+        self._isLoadingState = isLoadingState
+        self.loadingColor = loadingColor
+        self.buttonWidth = buttonWidth
+        self.buttonHeight = buttonHeight
+        self.action = action
+    }
     
     public var body: some View {
         ZStack {
@@ -73,10 +120,12 @@ public struct FlexButton: View {
     /// The button's content including title and icon.
     private var buttonContent: some View {
         ZStack {
-            Text(title)
-                .position(titlePosition)
-                .font(font)
-                .foregroundColor(titleColor)
+            if let title = title {
+                Text(title)
+                    .position(titlePosition)
+                    .font(font)
+                    .foregroundColor(titleColor)
+            }
             iconView
                 .position(iconPosition)
         }
