@@ -28,85 +28,62 @@ macOS 10.15+ or iOS 13+
 
 The FlexButton allows for extensive customization including:
 # Properties
+- `gradientColors: [Color]?` - Optional gradient colors for the button background. Defaults to a solid background color.
+- `icon: Image?` - Optional image to be displayed as an icon.
+- `title: String` - The button's text.
+- `borderColor: Color?` - Optional border color. Defaults to `nil`.
+- `borderWidth: CGFloat` - The width of the button's border. Defaults to `0`.
+- `cornerRadius: CGFloat` - The corner radius of the button. Defaults to `0`.
+- `shadowColor: Color?` - Optional shadow color. Defaults to `nil`.
+- `shadowRadius: CGFloat` - The radius of the shadow effect. Defaults to `5`.
+- `shadowOffset: CGSize` - The offset of the shadow effect. Defaults to `CGSize(width: 0, height: 0)`.
+- `shadowOpacity: Double` - The opacity of the shadow. Defaults to `0.5`.
+- `isLoadingState: Binding<Bool>` - A binding to determine whether the button is in a loading state.
+- `loadingColor: Color` - The color of the loading indicator. Defaults to `white`.
+- `font: Font` - The font used for the title text. Defaults to `system(size: 16, weight: .bold, design: .rounded)`.
+- `titleColor: Color` - The color of the title text. Defaults to `white`.
+- `backgroundColor: Color` - The solid background color. Defaults to `red`.
+- `titlePosition: CGPoint` - The position of the title text inside the button. Defaults to `(0,0)`.
+- `iconPosition: CGPoint` - The position of the icon inside the button. Defaults to `(0,0)`.
+- `iconColor: Color` - The color of the icon. Defaults to `white`.
+- `buttonWidth: CGFloat?` - The width of the button. Defaults to `nil` (stretches to available width).
+- `buttonHeight: CGFloat?` - The height of the button. Defaults to `nil` (default is 50).
+- `action: (Bool) -> Void` - The function to execute when the button is tapped. The `Bool` parameter indicates whether the button is in a loading state.
 
-# Appearance
-
-gradientColors: Array of Color for gradient backgrounds.
-
-backgroundColor: Single Color for button background.
-
-borderColor: Color for button border.
-
-borderWidth: Thickness of the border.
-
-cornerRadius: Corner radius of the button.
-
-shadowColor: Color of the shadow.
-
-shadowRadius: Blur radius of the shadow.
-
-shadowOffset: Offset of the shadow.
-
-shadowOpacity: Opacity of the shadow.
-
-# Content
-
-icon: Image to display alongside the title.
-
-title: String text displayed on the button.
-
-font: Font for the title text.
-
-titleColor: Color of the title text.
-
-imageAlignment: Alignment of the icon relative to the title (left, right, top, bottom).
-
-imageTitleSpacing: Spacing between the icon and the title.
-
-# Behavior
-
-isLoadingState: Binding<Bool> to control the loading state.
-
-loadingColor: Color of the loading spinner.
-
-action: Closure to handle button tap, receives the current loading state.
-
-# Size
-
-buttonWidth: Width of the button.
-
-buttonHeight: Height of the button.
-
-wrapButton: Determines if the button should wrap its content.
 
 ### Code
 ```swift
-import FlexButton
+import SwiftUI
+import FlexButton 
 
- FlexButton(
-            gradientColors: [.yellow,.green],
-                       icon: Image(systemName: "star.fill"),
-                       title: "Custom Button",
-                       shadowColor:.black,
-                       isLoadingState: $isLoading,
-                       loadingColor:.white,
-                       imageAlignment: ImageAlignment.top,
-                       imageTitleSpacing: 10,
-                       font: Font.system(size: 20, weight: Font.Weight.medium, design: Font.Design.monospaced),
-                       wrapButton: false,
-                       action: {_ in
-                           
-                               withAnimation(.easeInOut(duration: 0.5)) {
-                                   isLoading = true  // Start loading
-                               }
-                               DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                                   withAnimation(.easeInOut(duration: 0.5)) {
-                                       isLoading = false  // Stop loading
-                                   }
-                               }
-                       }
-                   )
-                   .padding()
+struct ContentView: View {
+    @State private var isLoading = false
+    
+    var body: some View {
+        FlexiButton(
+            gradientColors: [Color.blue, Color.purple],
+            icon: Image(systemName: "star.fill"),
+            title: "Click Me",
+            borderColor: .white,
+            borderWidth: 2,
+            cornerRadius: 10,
+            shadowColor: .gray,
+            shadowRadius: 5,
+            shadowOffset: CGSize(width: 2, height: 2),
+            shadowOpacity: 0.3,
+            isLoadingState: $isLoading,
+            loadingColor: .white,
+            titleColor: .white,
+            backgroundColor: .blue,
+            iconColor: .yellow,
+            buttonWidth: 200,
+            buttonHeight: 50,
+            action: { _ in
+                isLoading.toggle()
+            }
+        )
+    }
+}
 
 
 
