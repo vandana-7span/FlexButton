@@ -8,7 +8,8 @@ import UIKit
 #endif
 
 /// A customizable button with gradient, shadow, icon, and loading state.
-struct FlexiButton: View {
+@available(macOS 10.15, *)
+public struct FlexButton: View {
     // Customization Properties
     public var gradientColors: [Color]?
     public var icon: Image?
@@ -114,6 +115,7 @@ struct FlexiButton: View {
 }
 
 /// A circular progress indicator for loading state.
+@available(macOS 10.15, *)
 struct CircularProgressView: View {
     @State private var rotation = 0.0
     var color: Color
